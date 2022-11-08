@@ -1,16 +1,18 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, dialog, ipcMain } = require('electron')
 const contextMenu = require('electron-context-menu');
+const { globalShortcut, Menu } = require('electron')
 
 try {
-	require('electron-reloader')(module);
+    require('electron-reloader')(module);
 } catch {}
 
-const createWindow = (url) => {
+const createWindow = (url, title) => {
     const win = new BrowserWindow({
       width: 800,
       height: 600,
       minWidth: 800,
       minHeight: 600,
+      title: title,
       webPreferences: {
         spellcheck: true,
       }
@@ -25,7 +27,27 @@ const createWindow = (url) => {
 }
 
 app.whenReady().then(() => {
-    createWindow('https://gmail.com')
+    const template = [
+      {
+        label: 'Gmail',
+        click: () => {
+          createWindow('https://gmail.com')
+        }
+      },
+      {
+        label: 'URL',
+        click: () => {
+          dialog.showMessageBox({
+            type: 'info',
+            title: 'URL',
+            message: 'Enter the URL you want to open',
+            buttons: ['OK']
+          })
+        }
+      }
+    ]
+    const menu = Menu.buildFromTemplate(template)
+    Menu.setApplicationMenu(menu)
   })
 
   contextMenu({

@@ -1,2 +1,2 @@
-# DiscreteMail
-Discrete gmail client powered by Electron.
+# DiscreteMailNightly
+Discrete gmail client powered by Electron. (nightly)

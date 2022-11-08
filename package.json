@@ -1,0 +1,33 @@
+{
+  "name": "dmail",
+  "version": "1.0.0",
+  "description": "a discrete gmail client powered by Electron.",
+  "main": "main/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dMail/dMail.git"
+  },
+  "keywords": [
+    "email",
+    "mail",
+    "client",
+    "gmail"
+  ],
+  "author": "JaydenDev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dMail/dMail/issues"
+  },
+  "homepage": "https://github.com/dMail/dMail#readme",
+  "dependencies": {
+    "electron-context-menu": "^3.6.0"
+  },
+  "devDependencies": {
+    "electron": "^21.2.2",
+    "electron-reloader": "^1.2.3"
+  }
+}
